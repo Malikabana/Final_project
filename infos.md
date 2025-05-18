@@ -1,45 +1,50 @@
-Here's an even simpler version for your teammates:
+# Multiplayer Game Hub – Auth & Frontend Setup
+
+This setup includes backend authentication and frontend integration for the Multiplayer Game Hub.
+
+## 🔒 Backend (Node.js with Express)
+
+### Files:
+
+* `auth.js`: Contains register/login endpoints, JWT authentication, and user data functions.
+* `server.js`: Express server with routes for `/auth`, `/me`, `/stats`, `/preferences`, etc.
+* `db.js`: MySQL connection configuration (not shown here).
+
+### Main Routes:
+
+* `POST /auth/register` – User registration
+* `POST /auth/login` – User login
+* `GET /me` – Protected route to verify token and user ID
+* `GET /stats` – Get user wins/losses
+* `GET /ranking` – Top players by wins
+* `GET /preferences` – Fetch matchmaking preferences
+* `POST /preferences` – Update preferences
+
+## 🌐 Frontend
+
+### Files:
+
+* `frontend.html`: The main interface for login, registration, and API actions.
+* `auth.js`: Handles client-side logic (fetch requests, token storage, rendering output).
+
+### Usage:
+
+1. Open `frontend.html` in a browser.
+2. Use the forms to register and log in.
+3. Click buttons to interact with protected endpoints (uses JWT).
+
+### Note:
+
+Ensure the backend server is running at `http://localhost:3000`.
 
 ---
 
-# **Multiplayer Game Hub - Task 4 Summary**
+### 🚀 Future Improvements
 
-## **What was done:**
-
-1. **Database**:
-
-   * Created 3 tables: `users`, `games`, and `matchmaking_preferences`.
-
-2. **Authentication**:
-
-   * **Register**: Users can sign up.
-   * **Login**: Users get a JWT token when they log in.
-
-3. **User Stats**:
-
-   * Added routes to get and update user stats like wins and losses.
-
-4. **Matchmaking**:
-
-   * Users can set and update their preferences like game type and skill level.
-
----
-
-## **API Routes:**
-
-* **Register**: `POST /auth/register`
-* **Login**: `POST /auth/login` (gives a token)
-* **User Stats**: `GET /stats`
-* **Ranking**: `GET /ranking`
-* **Set Preferences**: `POST /preferences`
-* **Get Preferences**: `GET /preferences`
-
----
-
-## **Next Steps:**
-
-* Test the API.
-* Frontend can be added later.
+* Form validation
+* Error/success message UI
+* Refresh token mechanism
+* User profile page
 
 ---
 
